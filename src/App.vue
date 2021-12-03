@@ -1,28 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!--
+    <q-layout
+      :userRole="$t(userRole)"
+      :companyName="companyName"
+      :user="userDetails"
+      :lang="language"
+      @changeLang="changeLang"
+      @changeLangErr="changeLang"
+      :nav_items="menuItems"
+      :loading="loading"
+    >
+      <div class="content">
+        <router-view />
+      </div>
+    </q-layout>
+    -->
+    QIWA
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState, mapGetters } from "vuex";
+// import { store } from './core/store';
+// import { STORE } from './core/types/store';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {},
+  computed: {
+    ...mapState({
+      loading: state => state.loading,
+      session: state => state.session,
+      language: state => state.i18n.language,
+      menuItems: state => state.navigation.items,
+      companyName: state => state.company.details.name,
+      user: state => state.user,
+    }),
+    ...mapGetters({
+      userName: "getFullName",
+    }),
+  },
+  /* created() {
+    store.dispatch(STORE.USER.ACTION.GET, { userId: "97834"})
+  } */
 }
-</script>
+</script>„
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
