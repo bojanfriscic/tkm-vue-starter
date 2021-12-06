@@ -22,7 +22,7 @@ Router.prototype.replace = function replace(location, onResolve, onReject) {
 
 const router = new Router({
     mode: 'history',
-    base: '/',
+    base: process.env.VUE_APP_BASE_URL,
     routes,
 });
 
