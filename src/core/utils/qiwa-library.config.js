@@ -8,7 +8,7 @@ export const qiwaLibraryApi = {
             return error;
         }
     },
-    fetchViolations: Api.violations.fetchViolations,
+    // fetchViolations: Api.violations.fetchViolations,
 };
 
 export const qiwaLibraryUrls = {

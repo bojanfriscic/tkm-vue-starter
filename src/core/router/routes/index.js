@@ -1,24 +1,53 @@
 import { authRedirect } from '../../api/utils/authRedirect';
 import Layout from '../../../shared/components/Layout.vue';
+import ErrorPage from '../../views/ErrorPage/ErrorPage.vue';
+import { ROLES } from '../../types/roles';
 
 const routes = [
-    { path: '/', redirect: { name: 'company' } },
+    {
+        path: '/',
+        redirect: {
+            name: 'company',
+        },
+    },
     {
         name: 'company',
         path: '/company',
         component: Layout,
         meta: {
-            auth: true,
+            auth: {
+                role: ROLES.ROLE_COMPANY_ADMIN,
+            },
         },
+    },
+    {
+        path: "/not-found",
+        name: "404",
+        component: ErrorPage,
+    },
+    {
+        path: "/error",
+        name: "error",
+        component: ErrorPage,
+    },
+    {
+        path: "/forbidden",
+        name: "forbidden",
+        component: ErrorPage,
+    },
+    {
+        path: "/unauthorized",
+        name: "unauthorized",
+        component: ErrorPage,
     },
     {
         path: '/login',
         name: 'login',
         beforeEnter: (to, from, next) => {
-            console.log(to, from, next);
             authRedirect(to.params.redirect);
             next(false);
         },
     },
 ];
+
 export { routes };

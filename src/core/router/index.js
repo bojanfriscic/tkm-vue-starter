@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-//import Meta from "vue-meta";
+import Meta from "vue-meta";
 import { store } from '../store';
 // import { loadLocaleAsync } from '@/i18n';
 import { Cookie } from '../api/utils/cookie';
@@ -10,7 +10,7 @@ import { ROLES } from '../types/roles';
 import { CONSTANTS } from '../types/constants';
 
 Vue.use(Router);
-//Vue.use(Meta);
+Vue.use(Meta);
 
 // NavigationDuplicated error (in qiwa-library 1.1.3)
 // https://github.com/vuejs/vue-router/issues/2881#issuecomment-520554378
@@ -19,20 +19,24 @@ Router.prototype.replace = function replace(location, onResolve, onReject) {
     if (onResolve || onReject) return originalReplace.call(this, location, onResolve, onReject);
     return originalReplace.call(this, location).catch((err) => err);
 };
+
 const router = new Router({
     mode: 'history',
     base: '/',
     routes,
 });
+
 router.beforeEach(async (to, from, next) => {
     // const lang = store.state.i18n.language;
-    const isPublicRoute = to.matched.some((route) => !route.meta.auth);
     // await loadLocaleAsync(lang);
+
+    const isPublicRoute = to.matched.some((route) => !route.meta.auth);
+
     if (isPublicRoute) {
         return next();
     }
+
     if (Cookie.get('QIWA_SIGNED_IN')) {
-        console.log('ima kukija');
         try {
             const {
                 userId,
@@ -40,13 +44,17 @@ router.beforeEach(async (to, from, next) => {
                 roles: sessionRoles,
                 permissions,
             } = await store.dispatch(STORE.SESSION.ACTION.GET);
+
             await store.dispatch(STORE.USER.ACTION.GET, { userId, companyId });
+
             if (!permissions[CONSTANTS.SERVICE_PERMISSION_NAME]) {
                 return next({ name: 'forbidden' });
             }
+
             if (companyId) {
                 await store.dispatch(STORE.COMPANY.ACTION.GET, companyId);
             }
+
             const isAuthorized = to.matched.some((route) => {
                 if (Array.isArray(route.meta.auth.role)) {
                     return route.meta.auth.role.some((role) => sessionRoles.includes(role));
@@ -54,20 +62,25 @@ router.beforeEach(async (to, from, next) => {
                     return sessionRoles.includes(route.meta.auth.role);
                 }
             });
+
             if (isAuthorized) {
                 return next();
             } else {
                 if (sessionRoles.some((role) => role === ROLES.ROLE_COMPANY_ADMIN)) {
-                    return next({ name: 'company-dashboard' });
+                    /**
+                     * TODO Need to check were to redirect user in this case
+                     */
+                    return next({ name: 'company' });
                 }
+
                 return next({ name: 'unauthorized' });
             }
         } catch (error) {
             return next({ name: 'error' });
         }
     } else {
-        console.log('nema kukija');
         return next({ name: 'login', params: { redirect: to.path } });
     }
 });
-export default router;
+
+export { router };

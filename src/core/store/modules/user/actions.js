@@ -1,12 +1,10 @@
 import Api from '../../../api';
 import { isExpired } from '../../../api/utils/isExpired';
 import { STORE } from '../../../types/store';
-import { ROLE_MLSD_ADMIN } from '../../../types/roles';
+import { ROLES } from '../../../types/roles';
 
 const actions = {
     [STORE.USER.ACTION.GET]: async ({ commit, state }, { userId, companyId }) => {
-        console.log('user fetch');
-
         if (!isExpired(state.fetched)) {
             return state;
         }
@@ -19,8 +17,8 @@ const actions = {
                 first_name: account.first_name, // We need to pass first name to Qiwa Library.
                 last_name: account.last_name, // We need to pass last name to Qiwa Library.
                 ...account.user,
-                ...(account[ROLE_MLSD_ADMIN] && { mlsd_admin: account[ROLE_MLSD_ADMIN] }),
-                ...(account[ROLE_MLSD_ADMIN] && { [ROLE_MLSD_ADMIN]: account[ROLE_MLSD_ADMIN] }),
+                ...(account[ROLES.ROLE_MLSD_ADMIN] && { mlsd_admin: account[ROLES.ROLE_MLSD_ADMIN] }),
+                ...(account[ROLES.ROLE_MLSD_ADMIN] && { [ROLES.ROLE_MLSD_ADMIN]: account[ROLES.ROLE_MLSD_ADMIN] }),
                 ...(account.super && { super: account.super }),
             };
 

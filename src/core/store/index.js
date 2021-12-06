@@ -5,6 +5,7 @@ import { STORE } from '../types/store';
 import { user } from './modules/user';
 import { session } from './modules/session';
 import { company } from './modules/company';
+import { navigation } from "./modules/navigation";
 
 Vue.use(Vuex);
 
@@ -12,7 +13,7 @@ const initialState = {
     i18n: {},
     user: user.state,
     session: session.state,
-    navigation: {},
+    navigation: navigation.state,
 };
 
 const store = new Vuex.Store({
@@ -41,6 +42,7 @@ const store = new Vuex.Store({
         user,
         session,
         company,
+        navigation,
     },
 });
 
