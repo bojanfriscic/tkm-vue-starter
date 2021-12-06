@@ -36,8 +36,7 @@ export default {
             language: "en",
             // language: state => state.i18n.language,
             menuItems: state => state.navigation.items,
-            companyName: "Company Name",
-            // companyName: state => state.company.details.name,
+            companyName: state => state.company.details.name,
             user: state => state.user,
         }),
         ...mapGetters({
