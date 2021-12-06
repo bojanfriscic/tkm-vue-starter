@@ -10,12 +10,7 @@ import { store } from './core/store';
 import { router } from './core/router';
 
 Vue.config.productionTip = false;
-
-/**
- * ! It should be true only for DEV enviroment (tip: process.env.NODE_ENV === "development")
- * * .env file currently doesn't exist
- */
-Vue.config.devtools = true;
+Vue.config.devtools = process.env.NODE_ENV !== "production";
 
 // Vue.use(Buefy);
 Vue.use(QiwaLibrary, {

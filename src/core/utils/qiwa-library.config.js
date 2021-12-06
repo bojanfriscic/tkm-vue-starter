@@ -12,13 +12,13 @@ export const qiwaLibraryApi = {
 };
 
 export const qiwaLibraryUrls = {
-    productRegistryApi: 'https://products-registry.api.qiwa.info',
-    notificationsApi: 'https://notifications.api.qiwa.info',
-    authApi: 'https://auth-api.qiwa.info',
-    authSpa: 'https://auth.qiwa.info',
-    dashboardSpa: 'https://spa.qiwa.info',
-    landingSpa: 'https://qiwa.info',
-    lmi: 'https://index.qiwa.info',
-    policies: 'https://policies.qiwa.info',
-    knowledge: 'https://knowledge.qiwa.info',
+    productRegistryApi: process.env.VUE_APP_REGISTRY_API_URL,
+    notificationsApi: process.env.VUE_APP_NOTIFICATIONS_API_URL,
+    authApi: process.env.VUE_APP_AUTH_API_URL,
+    authSpa: process.env.VUE_APP_AUTH_URL,
+    dashboardSpa: process.env.VUE_APP_DASHBOARD_SPA_URL,
+    landingSpa: process.env.VUE_APP_QIWA_URL,
+    lmi: process.env.VUE_APP_LMI_URL,
+    policies: process.env.VUE_APP_POLICIES_URL,
+    knowledge: process.env.VUE_APP_KNOWLEDGE_URL,
 };

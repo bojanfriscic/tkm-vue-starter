@@ -3,7 +3,7 @@ import { authInterceptor } from '../utils/authInterceptor';
 import { validateStatus } from '../utils/validateStatus';
 
 const authApi = axios.create({
-    baseURL: 'https://auth-api.qiwa.info/api',
+    baseURL: `${process.env.VUE_APP_AUTH_API_URL}/api`,
     withCredentials: true,
     headers: {
         'Access-Control-Allow-Origin': '*',
