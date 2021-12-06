@@ -51,10 +51,9 @@ router.beforeEach(async (to, from, next) => {
                 return next({ name: 'forbidden' });
             }
 
-            // TODO Uncomment once Company store is implemented
-            // if (companyId) {
-            //     await store.dispatch(STORE.COMPANY.ACTION.GET, companyId);
-            // }
+            if (companyId) {
+                await store.dispatch(STORE.COMPANY.ACTION.GET, companyId);
+            }
 
             const isAuthorized = to.matched.some((route) => {
                 if (Array.isArray(route.meta.auth.role)) {
