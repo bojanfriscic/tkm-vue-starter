@@ -30,6 +30,14 @@ const STORE = {
             SET: 'company/mutation/set',
         },
     },
+    I18N: {
+        MUTATION: {
+            SET: '🇸🇦 Setting Locale',
+        },
+        ACTION: {
+            SET: 'locale/set',
+        },
+    },
     SESSION: {
         MUTATION: {
             FETCH: 'session/mutation/fetch',
@@ -50,7 +58,7 @@ const STORE = {
         ACTION: {
             GET: 'navigation/action/get',
         },
-    }
+    },
 };
 
 export { STORE };
