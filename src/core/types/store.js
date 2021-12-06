@@ -20,22 +20,22 @@ const STORE = {
         },
     },
     COMPANY: {
-        ACTION: {
-            GET: 'company/action/get',
-        },
         MUTATION: {
             GET: 'company/mutation/get',
             FETCH: 'company/mutation/fetch',
             FETCHED: 'company/mutation/fetched',
             SET: 'company/mutation/set',
         },
+        ACTION: {
+            GET: 'company/action/get',
+        },
     },
     I18N: {
         MUTATION: {
-            SET: '🇸🇦 Setting Locale',
+            SET: 'i18n/mutation/set',
         },
         ACTION: {
-            SET: 'locale/set',
+            SET: 'i18n/action/set',
         },
     },
     SESSION: {
