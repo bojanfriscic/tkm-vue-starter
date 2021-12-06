@@ -25,6 +25,9 @@ const STORE = {
         },
         MUTATION: {
             GET: 'company/mutation/get',
+            FETCH: 'company/mutation/fetch',
+            FETCHED: 'company/mutation/fetched',
+            SET: 'company/mutation/set',
         },
     },
     SESSION: {
