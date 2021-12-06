@@ -41,6 +41,16 @@ const STORE = {
             LOGOUT: 'session/action/logout',
         },
     },
+    NAVIGATION: {
+        MUTATION: {
+            FETCH: 'navigation/mutation/fetch',
+            FETCHED: 'navigation/mutation/fetched',
+            SET: 'navigation/mutation/set',
+        },
+        ACTION: {
+            GET: 'navigation/action/get',
+        },
+    }
 };
 
 export { STORE };

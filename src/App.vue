@@ -1,51 +1,44 @@
 <template>
-  <div id="app">
-    <!--
-    <q-layout
-      :userRole="$t(userRole)"
-      :companyName="companyName"
-      :user="userDetails"
-      :lang="language"
-      @changeLang="changeLang"
-      @changeLangErr="changeLang"
-      :nav_items="menuItems"
-      :loading="loading"
-    >
-      <div class="content">
+    <div id="app">
         <router-view />
-      </div>
-    </q-layout>
-    -->
-    QIWA
-  </div>
+    </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
-// import { store } from './core/store';
-// import { STORE } from './core/types/store';
+import { mapState } from "vuex";
 
 export default {
-  name: 'App',
-  components: {},
-  computed: {
-    ...mapState({
-      loading: state => state.loading,
-      session: state => state.session,
-      language: state => state.i18n.language,
-      menuItems: state => state.navigation.items,
-      companyName: state => state.company.details.name,
-      user: state => state.user,
+    name: 'App',
+    metaInfo() {
+        return {
+            title: "Takamol Vue starter",
+            // title: this.$t("CORE.PAGE_TITLE"),
+            htmlAttrs: {
+                lang: this.language,
+                dir: this.language === "ar" ? "rtl" : "ltr",
+            },
+        };
+    },
+    computed: mapState({
+        language: "en",
+        // language: state => state.i18n.language,
     }),
-    ...mapGetters({
-      userName: "getFullName",
-    }),
-  },
-  /* created() {
-    store.dispatch(STORE.USER.ACTION.GET, { userId: "97834"})
-  } */
 }
-</script>„
+</script>
 
-<style>
+<style lang="scss">
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+
+        [dir="rtl"] & {
+            direction: rtl;
+        }
+    }
 </style>

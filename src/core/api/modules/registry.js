@@ -3,7 +3,7 @@ import { authInterceptor } from '../utils/authInterceptor';
 import { validateStatus } from '../utils/validateStatus';
 
 const registryApi = axios.create({
-    baseURL: 'https://products-registry.api.qiwa.info',
+    baseURL: 'https://products-registry.api.qiwa.info/api',
     withCredentials: true,
     validateStatus,
 });
