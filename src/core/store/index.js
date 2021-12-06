@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 import { STORE } from '../types/store';
 import { user } from './modules/user';
 import { session } from './modules/session';
+import { company } from './modules/company';
 
 Vue.use(Vuex);
 
@@ -39,6 +40,7 @@ const store = new Vuex.Store({
     modules: {
         user,
         session,
+        company,
     },
 });
 
