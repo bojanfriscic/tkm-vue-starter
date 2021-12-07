@@ -1,9 +1,9 @@
-import Api from '../api';
+import { api } from '../api';
 
 export const qiwaLibraryApi = {
     logout: async () => {
         try {
-            await Api.auth.logout();
+            await api.auth.logout();
         } catch (error) {
             return error;
         }

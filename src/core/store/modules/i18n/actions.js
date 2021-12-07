@@ -1,4 +1,4 @@
-import Api from '../../../api';
+import { api } from '../../../api';
 import { loadLocaleAsync } from '../../../i18n';
 import { STORE } from '../../../types/store';
 
@@ -7,7 +7,7 @@ const actions = {
         try {
             dispatch(STORE.GLOBAL.ACTION.LOADER_SET, true);
 
-            await Api.auth.changeLocale(locale);
+            await api.auth.changeLocale(locale);
             await loadLocaleAsync(locale);
 
             commit(STORE.I18N.MUTATION.SET, locale);
