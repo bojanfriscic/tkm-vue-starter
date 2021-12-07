@@ -1,5 +1,5 @@
 import Api from '../../../api';
-import { loadLocaleAsync } from '../../../../i18n';
+import { loadLocaleAsync } from '../../../i18n';
 import { STORE } from '../../../types/store';
 
 const actions = {

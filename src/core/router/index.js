@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Meta from "vue-meta";
 import { store } from '../store';
-import { loadLocaleAsync } from '../../i18n';
+import { loadLocaleAsync } from '../i18n';
 import { Cookie } from '../api/utils/cookie';
 import { routes } from './routes';
 import { STORE } from '../types/store';

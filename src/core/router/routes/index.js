@@ -1,6 +1,6 @@
 import { authRedirect } from '../../api/utils/authRedirect';
-import Layout from '../../../shared/components/Layout.vue';
-import ErrorPage from '../../views/ErrorPage/ErrorPage.vue';
+import Layout from '../../../core/hoc/Layout.vue';
+import ErrorPage from '../../../views/ErrorPage/ErrorPage.vue';
 import { ROLES } from '../../types/roles';
 
 const routes = [
