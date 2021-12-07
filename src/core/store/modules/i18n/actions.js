@@ -10,11 +10,11 @@ const actions = {
             await Api.auth.changeLocale(locale);
             await loadLocaleAsync(locale);
 
-            commit(STORE.GLOBAL.MUTATION.LOADER_SET, locale);
+            commit(STORE.I18N.MUTATION.SET, locale);
             dispatch(STORE.GLOBAL.ACTION.LOADER_SET, false);
             return dispatch(STORE.NAVIGATION.ACTION.GET);
         } catch (error) {
-            dispatch(STORE.GLOBAL.ACTION.SET, false);
+            dispatch(STORE.GLOBAL.ACTION.LOADER_SET, false);
             return error;
         }
     },

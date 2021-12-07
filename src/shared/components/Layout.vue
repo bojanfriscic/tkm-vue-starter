@@ -33,8 +33,7 @@ export default {
         ...mapState({
             loading: state => state.loading,
             session: state => state.session,
-            language: "en",
-            // language: state => state.i18n.language,
+            language: state => state.i18n.language,
             menuItems: state => state.navigation.items,
             companyName: state => state.company.details.name,
             user: state => state.user,
@@ -57,29 +56,13 @@ export default {
                 return "CORE.DASHBOARD.EMPLOYEE";
             }
         },
-        // routeLinks() {
-        //     if (isCompanyAdmin(this.session.roles)) {
-        //         return [
-        //             {
-        //                 name: "company-dashboard",
-        //                 icon: "icon-dashboard",
-        //                 t: "SIDEBAR.LINKS.DASHBOARD",
-        //             },
-        //         ];
-        //     }
-        //     return [];
-        // },
     },
     mounted() {
         this.fetchMenuItems();
     },
     methods: {
-        // TODO Remove it once changeLang action is implemented
-        changeLang(lang) {
-            this.language = lang;
-        },
         ...mapActions({
-            // changeLang: types.ACTION_LOCALE_SET,
+            changeLang: STORE.I18N.ACTION.SET,
             fetchMenuItems: STORE.NAVIGATION.ACTION.GET,
         }),
     },
@@ -95,6 +78,14 @@ export default {
 
         .q-page {
             flex: 1;
+        }
+
+        // TODO Check other css classes for RTL option
+        [dir="rtl"] & {
+            .q-page-sidebar {
+                left: auto;
+                right: 0;
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-import messagesEn from '../en.json';
+import messagesEn from './en.json';
 
 Vue.use(VueI18n);
 
@@ -36,7 +36,7 @@ export async function loadLocaleAsync(locale) {
     setLocalStorageLocale(locale);
     if (i18n.locale !== locale) {
         if (!loadedLocales.includes(locale)) {
-            const msgs = await import(/* webpackChunkName: "locale-[request]" */ `./i18n/${locale}.json`);
+            const msgs = await import(/* webpackChunkName: "locale-[request]" */ `./${locale}.json`);
             i18n.setLocaleMessage(locale, msgs.default);
             loadedLocales.push(locale);
             return setI18nLocale(locale);

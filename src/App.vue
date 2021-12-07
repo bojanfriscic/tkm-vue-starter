@@ -11,8 +11,7 @@ export default {
     name: 'App',
     metaInfo() {
         return {
-            title: "Takamol Vue starter",
-            // title: this.$t("CORE.PAGE_TITLE"),
+            title: this.$t("CORE.PAGE_TITLE"),
             htmlAttrs: {
                 lang: this.language,
                 dir: this.language === "ar" ? "rtl" : "ltr",
@@ -20,8 +19,7 @@ export default {
         };
     },
     computed: mapState({
-        language: "en",
-        // language: state => state.i18n.language,
+        language: state => state.i18n.language,
     }),
 }
 </script>

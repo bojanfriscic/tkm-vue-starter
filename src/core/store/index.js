@@ -11,7 +11,7 @@ import { navigation } from './modules/navigation';
 Vue.use(Vuex);
 
 const initialState = {
-    i18n: {},
+    i18n: i18n.state,
     user: user.state,
     session: session.state,
     navigation: navigation.state,
