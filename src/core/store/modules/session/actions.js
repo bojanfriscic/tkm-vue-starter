@@ -1,8 +1,8 @@
-import { api } from '../../../api';
-import { authRedirect } from '../../../api/utils/authRedirect';
-import { isExpired } from '../../../api/utils/isExpired';
-import { STORE } from '../../../types/store';
-import { ROLES } from '../../../types/roles';
+import { api } from '@api';
+import { authRedirect } from '@api/utils/authRedirect';
+import { isExpired } from '@api/utils/isExpired';
+import { STORE } from '@types/store';
+import { ROLES } from '@types/roles';
 
 const actions = {
     [STORE.SESSION.ACTION.GET]: async function ({ commit, state }, payload) {

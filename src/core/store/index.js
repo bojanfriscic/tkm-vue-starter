@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { STORE } from '../types/store';
+import { STORE } from '@types/store';
 import { user } from './modules/user';
 import { session } from './modules/session';
 import { company } from './modules/company';

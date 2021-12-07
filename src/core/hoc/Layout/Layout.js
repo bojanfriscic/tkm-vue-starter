@@ -1,8 +1,8 @@
 import { mapState, mapGetters, mapActions } from 'vuex';
 import { Layout as QLayout } from 'qiwa-library/src/components/layout';
 
-import { STORE } from '../../types/store';
-import { isCompanyAdmin } from '../../utils/roles';
+import { STORE } from '@types/store';
+import { isCompanyAdmin } from '@utils/roles';
 
 export default {
     name: 'Layout',
