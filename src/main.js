@@ -8,7 +8,7 @@ import * as VeeValidate from 'vee-validate';
 
 import App from './App.vue';
 import { store } from './core/store';
-import { i18n } from './i18n';
+import { i18n } from './core/i18n';
 import { router } from './core/router';
 
 Vue.config.productionTip = false;
