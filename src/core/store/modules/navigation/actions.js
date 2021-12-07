@@ -1,4 +1,4 @@
-import Api from '../../../api';
+import { api } from '../../../api';
 import { STORE } from '../../../types/store';
 
 const actions = {
@@ -6,7 +6,7 @@ const actions = {
         try {
             commit(STORE.NAVIGATION.MUTATION.FETCH, true);
 
-            const { data: menuItems } = await Api.registry.getMenuItems();
+            const { data: menuItems } = await api.registry.getMenuItems();
 
             commit(STORE.NAVIGATION.MUTATION.FETCHED, new Date().getTime());
             commit(STORE.NAVIGATION.MUTATION.SET, menuItems);

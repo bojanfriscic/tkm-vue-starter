@@ -1,4 +1,4 @@
-import Api from '../../../api';
+import { api } from '../../../api';
 import { isExpired } from '../../../api/utils/isExpired';
 import { STORE } from '../../../types/store';
 
@@ -9,7 +9,7 @@ const actions = {
         try {
             commit(STORE.COMPANY.MUTATION.FETCH, true);
 
-            const { data: company } = await Api.auth.getCompany(companyId);
+            const { data: company } = await api.auth.getCompany(companyId);
 
             commit(STORE.COMPANY.MUTATION.FETCHED, new Date().getTime());
             commit(STORE.COMPANY.MUTATION.SET, company);

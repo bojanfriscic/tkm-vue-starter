@@ -13,22 +13,32 @@ const authApi = axios.create({
 
 authApi.interceptors.response.use((res) => res, authInterceptor);
 
-export function getSession() {
+function getSession() {
     return authApi.get('session');
 }
 
-export function logout() {
+function logout() {
     return authApi.delete('session');
 }
 
-export function getUser(company = false, userId) {
+function getUser(company = false, userId) {
     return authApi.get(`${company ? 'corporate/company/' : ''}users/${userId}`);
 }
 
-export function getCompany(companyId) {
+function getCompany(companyId) {
     return authApi.get(`companies/${companyId}`);
 }
 
-export function changeLocale(locale) {
+function changeLocale(locale) {
     return authApi.put('profile/update_locale', { user: { locale } });
 }
+
+const auth = {
+    getSession,
+    logout,
+    getUser,
+    getCompany,
+    changeLocale,
+};
+
+export { auth };

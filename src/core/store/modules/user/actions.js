@@ -1,4 +1,4 @@
-import Api from '../../../api';
+import { api } from '../../../api';
 import { isExpired } from '../../../api/utils/isExpired';
 import { STORE } from '../../../types/store';
 import { ROLES } from '../../../types/roles';
@@ -11,7 +11,7 @@ const actions = {
 
         try {
             commit(STORE.USER.MUTATION.FETCH, true);
-            const { data: account } = await Api.auth.getUser(companyId, userId);
+            const { data: account } = await api.auth.getUser(companyId, userId);
 
             const user = {
                 first_name: account.first_name, // We need to pass first name to Qiwa Library.
