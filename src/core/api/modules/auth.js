@@ -21,7 +21,7 @@ function logout() {
     return authApi.delete('session');
 }
 
-function getUser(company = false, userId) {
+function getUser(userId, company = false) {
     return authApi.get(`${company ? 'corporate/company/' : ''}users/${userId}`);
 }
 

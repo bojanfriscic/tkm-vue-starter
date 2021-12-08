@@ -2,9 +2,6 @@ import 'qiwa-library/src/assets/scss/_qiwa-main.scss';
 
 import Vue from 'vue';
 import * as VeeValidate from 'vee-validate';
-// import Buefy from 'buefy';
-// import QiwaLibrary from 'qiwa-library';
-// import { qiwaLibraryApi, qiwaLibraryUrls } from './core/utils/qiwa-library.config';
 
 import App from './App.vue';
 import { store } from '@store';
@@ -19,15 +16,6 @@ Vue.use(VeeValidate, {
     i18n,
     useConstraintAttrs: false,
 });
-
-// Vue.use(Buefy);
-// Vue.use(QiwaLibrary, {
-//     Api: qiwaLibraryApi,
-//     urlsList: qiwaLibraryUrls,
-//     store,
-//     layoutToInstall: ['Header', 'Sidebar', 'Footer', 'Layout'],
-//     uiToInstall: ['SteperList'],
-// });
 
 new Vue({
     i18n,
