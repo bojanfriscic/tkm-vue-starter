@@ -4,3 +4,11 @@
     letter-spacing: 0;
     background-color: $white;
 }
+
+//should be removed later, styling current table of mock data
+table,th,tr,td{
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
