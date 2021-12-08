@@ -1,0 +1,27 @@
+$default-context: 16;
+$default-context-em: $default-context;
+$default-context-rem: $default-context;
+
+@function em($pixels, $context: $default-context-em) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return ($pixels / $context) * 1em;
+}
+
+@function rem($pixels, $context: $default-context-rem) {
+    @if (unitless($pixels)) {
+        $pixels: $pixels * 1px;
+    }
+
+    @if (unitless($context)) {
+        $context: $context * 1px;
+    }
+
+    @return ($pixels / $context) * 1rem;
+}

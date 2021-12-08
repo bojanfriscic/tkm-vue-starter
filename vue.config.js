@@ -23,4 +23,16 @@ module.exports = {
             extensions: ['.js', '.vue', '.json'],
         },
     },
+    css: {
+        loaderOptions: {
+            sass: {
+                data: `
+                    @import '@/assets/scss/01-settings/_breakpoints.scss';
+                    @import '@/assets/scss/01-settings/_colors.scss';
+                    @import '@/assets/scss/02-tools/_functions.scss';
+                    @import '@/assets/scss/02-tools/_mixins.scss';
+                `,
+            },
+        },
+    },
 };
