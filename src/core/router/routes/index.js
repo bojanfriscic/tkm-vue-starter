@@ -1,7 +1,7 @@
-import { authRedirect } from '../../api/utils/authRedirect';
-import Layout from '../../../core/hoc/Layout.vue';
-import ErrorPage from '../../../views/ErrorPage/ErrorPage.vue';
-import { ROLES } from '../../types/roles';
+import { authRedirect } from '@api/utils/authRedirect';
+import { Layout } from '@hoc/Layout';
+import { ErrorPage } from '@views/ErrorPage';
+import { ROLES } from '@types/roles';
 
 const routes = [
     {
@@ -21,23 +21,23 @@ const routes = [
         },
     },
     {
-        path: "/not-found",
-        name: "404",
+        path: '/not-found',
+        name: '404',
         component: ErrorPage,
     },
     {
-        path: "/error",
-        name: "error",
+        path: '/error',
+        name: 'error',
         component: ErrorPage,
     },
     {
-        path: "/forbidden",
-        name: "forbidden",
+        path: '/forbidden',
+        name: 'forbidden',
         component: ErrorPage,
     },
     {
-        path: "/unauthorized",
-        name: "unauthorized",
+        path: '/unauthorized',
+        name: 'unauthorized',
         component: ErrorPage,
     },
     {
