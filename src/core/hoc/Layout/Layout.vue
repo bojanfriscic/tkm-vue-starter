@@ -1,5 +1,5 @@
 <template>
-    <div class="layout-dashboard">
+    <div class="c-dashboard-layout">
         <QLayout
             :userRole="$t(userRole)"
             :companyName="companyName"

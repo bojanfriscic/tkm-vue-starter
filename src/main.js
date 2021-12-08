@@ -1,4 +1,5 @@
 import 'qiwa-library/src/assets/scss/_qiwa-main.scss';
+import '@assets/scss/index.scss';
 
 import Vue from 'vue';
 import * as VeeValidate from 'vee-validate';
@@ -9,7 +10,7 @@ import { i18n } from '@i18n';
 import { router } from '@router';
 
 Vue.config.productionTip = false;
-Vue.config.devtools = process.env.NODE_ENV !== "production";
+Vue.config.devtools = process.env.NODE_ENV !== 'production';
 
 Vue.use(VeeValidate, {
     i18nRootKey: 'CORE.ERRORS',
