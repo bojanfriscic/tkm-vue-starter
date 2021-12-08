@@ -1,6 +1,6 @@
-import { api } from '../../../api';
-import { isExpired } from '../../../api/utils/isExpired';
-import { STORE } from '../../../types/store';
+import { api } from '@api';
+import { isExpired } from '@api/utils/isExpired';
+import { STORE } from '@types/store';
 
 const actions = {
     [STORE.COMPANY.ACTION.GET]: async function ({ commit, state }, companyId) {

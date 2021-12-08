@@ -1,6 +1,6 @@
-import { api } from '../../../api';
-import { loadLocaleAsync } from '../../../i18n';
-import { STORE } from '../../../types/store';
+import { api } from '@api';
+import { loadLocaleAsync } from '@i18n';
+import { STORE } from '@types/store';
 
 const actions = {
     [STORE.I18N.ACTION.SET]: async function ({ commit, dispatch }, locale) {

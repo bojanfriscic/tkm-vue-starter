@@ -1,7 +1,7 @@
-import { authRedirect } from '../../api/utils/authRedirect';
-import { Layout } from '../../../core/hoc/Layout';
-import { ErrorPage } from '../../../views/ErrorPage';
-import { ROLES } from '../../types/roles';
+import { authRedirect } from '@api/utils/authRedirect';
+import { Layout } from '@hoc/Layout';
+import { ErrorPage } from '@views/ErrorPage';
+import { ROLES } from '@types/roles';
 
 const routes = [
     {

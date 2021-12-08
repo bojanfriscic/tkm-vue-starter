@@ -1,5 +1,5 @@
-import { api } from '../../../api';
-import { STORE } from '../../../types/store';
+import { api } from '@api';
+import { STORE } from '@types/store';
 
 const actions = {
     [STORE.NAVIGATION.ACTION.GET]: async ({ commit }) => {

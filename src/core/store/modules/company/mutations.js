@@ -1,4 +1,4 @@
-import { STORE } from '../../../types/store';
+import { STORE } from '@types/store';
 
 const mutations = {
     [STORE.COMPANY.MUTATION.FETCH](state, loading) {

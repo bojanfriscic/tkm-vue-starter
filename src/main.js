@@ -7,9 +7,9 @@ import * as VeeValidate from 'vee-validate';
 // import { qiwaLibraryApi, qiwaLibraryUrls } from './core/utils/qiwa-library.config';
 
 import App from './App.vue';
-import { store } from './core/store';
-import { i18n } from './core/i18n';
-import { router } from './core/router';
+import { store } from '@store';
+import { i18n } from '@i18n';
+import { router } from '@router';
 
 Vue.config.productionTip = false;
 Vue.config.devtools = process.env.NODE_ENV !== "production";
