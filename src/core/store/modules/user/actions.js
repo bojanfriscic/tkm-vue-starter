@@ -11,7 +11,7 @@ const actions = {
 
         try {
             commit(STORE.USER.MUTATION.FETCH, true);
-            const { data: account } = await api.auth.getUser(companyId, userId);
+            const { data: account } = await api.auth.getUser(userId, companyId);
 
             const user = {
                 first_name: account.first_name, // We need to pass first name to Qiwa Library.
