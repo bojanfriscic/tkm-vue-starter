@@ -23,20 +23,3 @@ export default {
     }),
 }
 </script>
-
-<style lang="scss">
-    html {
-        font-size: 100%;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        padding: 0;
-        margin: 0;
-        height: 100%;
-
-        [dir="rtl"] & {
-            direction: rtl;
-        }
-    }
-</style>
