@@ -1,5 +1,5 @@
 function setCookie(name, value, days) {
-    let date = new Date();
+    const date = new Date();
     let expires = '';
 
     if (days) {
@@ -14,7 +14,7 @@ function getCookie(name) {
     const nameEQ = name + '=';
     const ca = document.cookie.split(';');
 
-    for (var i = 0; i < ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
 
         while (c.charAt(0) === ' ') {

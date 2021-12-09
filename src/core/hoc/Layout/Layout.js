@@ -33,7 +33,7 @@ export default {
             return { ...this.userDetailsData, name: this.userName };
         },
         dashboardService() {
-            let fileName = 'dashboardServicesMock';
+            const fileName = 'dashboardServicesMock';
             if (!mockupLoaderFunction(fileName)) return { ...this.userDetailsData, name: this.userName };
             else {
                 return mockupLoaderFunction(fileName);
