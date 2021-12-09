@@ -3,6 +3,7 @@ import '@assets/scss/index.scss';
 
 import Vue from 'vue';
 import * as VeeValidate from 'vee-validate';
+import Meta from "vue-meta";
 
 import App from './App.vue';
 import { store } from '@store';
@@ -17,6 +18,7 @@ Vue.use(VeeValidate, {
     i18n,
     useConstraintAttrs: false,
 });
+Vue.use(Meta);
 
 new Vue({
     i18n,

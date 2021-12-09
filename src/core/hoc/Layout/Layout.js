@@ -35,20 +35,15 @@ export default {
         dashboardService() {
             const fileName = 'dashboardServicesMock';
             if (!mockupLoaderFunction(fileName)) return { ...this.userDetailsData, name: this.userName };
-            else {
-                return mockupLoaderFunction(fileName);
-            }
+            return mockupLoaderFunction(fileName);
         },
         userRole() {
             const { roles: sessionRoles } = this.session;
 
             if (!sessionRoles.length) return;
 
-            if (isCompanyAdmin(sessionRoles)) {
-                return 'CORE.DASHBOARD.COMPANY_ADMIN';
-            } else {
-                return 'CORE.DASHBOARD.EMPLOYEE';
-            }
+            if (isCompanyAdmin(sessionRoles)) return 'CORE.DASHBOARD.COMPANY_ADMIN';
+            return 'CORE.DASHBOARD.EMPLOYEE';
         },
     },
     mounted() {

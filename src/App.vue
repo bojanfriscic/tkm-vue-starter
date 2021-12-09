@@ -1,11 +1,14 @@
 <template>
     <div id="app">
-        <router-view />
+        <Layout>
+            <router-view />
+        </Layout>
     </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import { Layout } from '@hoc/Layout';
 
 export default {
     name: 'App',
@@ -17,6 +20,9 @@ export default {
                 dir: this.language === "ar" ? "rtl" : "ltr",
             },
         };
+    },
+    components: {
+        Layout
     },
     computed: mapState({
         language: state => state.i18n.language,
