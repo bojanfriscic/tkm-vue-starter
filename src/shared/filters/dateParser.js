@@ -1,5 +1,5 @@
 function parseDate(DateString) {
-    var d = new Date(DateString);
+    const d = new Date(DateString);
     return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear();
 }
 
