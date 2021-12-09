@@ -1,25 +1,14 @@
-.layout-dashboard {
+.c-dashboard-layout {
     display: flex;
     min-height: 100vh;
     letter-spacing: 0;
-    background-color: white;
-
-    .q-page {
-        flex: 1;
-    }
-
-    // TODO Check other css classes for RTL option
-    [dir='rtl'] & {
-        .q-page-sidebar {
-            left: auto;
-            right: 0;
-        }
-    }
+    background-color: $white;
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 300px;
+//should be removed later, styling current table of mock data
+table,th,tr,td{
+    text-align: left;
+    padding: 1rem;
+    border: 1px solid black;
+    border-collapse: collapse;
 }

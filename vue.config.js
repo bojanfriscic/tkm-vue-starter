@@ -18,9 +18,23 @@ module.exports = {
                 '@store': path.resolve(__dirname, './src/core/store'),
                 '@types': path.resolve(__dirname, './src/core/types'),
                 '@utils': path.resolve(__dirname, './src/core/utils'),
+                '@mocks': path.resolve(__dirname, './src/mocks'),
+                '@shared': path.resolve(__dirname, './src/shared'),
                 '@views': path.resolve(__dirname, './src/views'),
             },
             extensions: ['.js', '.vue', '.json'],
+        },
+    },
+    css: {
+        loaderOptions: {
+            sass: {
+                data: `
+                    @import '@/assets/scss/01-settings/_breakpoints.scss';
+                    @import '@/assets/scss/01-settings/_colors.scss';
+                    @import '@/assets/scss/02-tools/_functions.scss';
+                    @import '@/assets/scss/02-tools/_mixins.scss';
+                `,
+            },
         },
     },
 };

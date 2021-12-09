@@ -3,11 +3,18 @@ import { Layout as QLayout } from 'qiwa-library/src/components/layout';
 
 import { STORE } from '@types/store';
 import { isCompanyAdmin } from '@utils/roles';
+import { mockupLoaderFunction } from '@utils/mockupLoader';
+import { parseDate } from '@shared/filters/dateParser';
 
 export default {
     name: 'Layout',
     components: {
         QLayout,
+    },
+    data() {
+        return {
+            isMock: process.env.VUE_APP_MOCKMODE === 'enabled',
+        };
     },
     computed: {
         ...mapState({
@@ -24,6 +31,13 @@ export default {
         }),
         userDetails() {
             return { ...this.userDetailsData, name: this.userName };
+        },
+        dashboardService() {
+            let fileName = 'dashboardServicesMock';
+            if (!mockupLoaderFunction(fileName)) return { ...this.userDetailsData, name: this.userName };
+            else {
+                return mockupLoaderFunction(fileName);
+            }
         },
         userRole() {
             const { roles: sessionRoles } = this.session;
@@ -45,5 +59,6 @@ export default {
             changeLang: STORE.I18N.ACTION.SET,
             fetchMenuItems: STORE.NAVIGATION.ACTION.GET,
         }),
+        dateFormating: parseDate,
     },
 };
