@@ -10,6 +10,12 @@ const registryApi = axios.create({
 
 registryApi.interceptors.response.use((res) => res, authInterceptor);
 
-export function getMenuItems() {
+function getMenuItems() {
     return registryApi.get('menu-items');
 }
+
+const registry = {
+    getMenuItems,
+};
+
+export { registry };

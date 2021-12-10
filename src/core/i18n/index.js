@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-import messagesEn from './en.json';
+import translationsEn from './en.json';
 
 Vue.use(VueI18n);
 
@@ -9,7 +9,7 @@ export const i18n = new VueI18n({
     locale: 'en',
     fallbackLocale: 'en',
     messages: {
-        en: messagesEn,
+        en: translationsEn,
     },
 });
 

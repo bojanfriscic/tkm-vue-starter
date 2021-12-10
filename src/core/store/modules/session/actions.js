@@ -1,8 +1,8 @@
-import Api from '../../../api';
-import { authRedirect } from '../../../api/utils/authRedirect';
-import { isExpired } from '../../../api/utils/isExpired';
-import { STORE } from '../../../types/store';
-import { ROLES } from '../../../types/roles';
+import { api } from '@api';
+import { authRedirect } from '@api/utils/authRedirect';
+import { isExpired } from '@api/utils/isExpired';
+import { STORE } from '@types/store';
+import { ROLES } from '@types/roles';
 
 const actions = {
     [STORE.SESSION.ACTION.GET]: async function ({ commit, state }, payload) {
@@ -13,7 +13,7 @@ const actions = {
         try {
             commit(STORE.SESSION.MUTATION.FETCH, true);
 
-            const { data: session } = await Api.auth.getSession();
+            const { data: session } = await api.auth.getSession();
             const { user, roles, company, permissions } = session;
             const sessionRoles = roles || [];
 
@@ -44,7 +44,7 @@ const actions = {
     },
     [STORE.SESSION.ACTION.LOGOUT]: async function ({ dispatch }) {
         try {
-            await Api.auth.logout();
+            await api.auth.logout();
             dispatch(STORE.GLOBAL.ACTION.RESET);
             authRedirect('/dashboard');
         } catch (error) {

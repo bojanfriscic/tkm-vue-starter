@@ -1,19 +1,21 @@
-import { authRedirect } from '../../api/utils/authRedirect';
-import Layout from '../../../core/hoc/Layout.vue';
-import ErrorPage from '../../../views/ErrorPage/ErrorPage.vue';
-import { ROLES } from '../../types/roles';
+import { authRedirect } from '@api/utils/authRedirect';
+import { DashboardPage } from '@views/DashboardPage';
+import { ErrorPage } from '@views/ErrorPage';
+import { ROUTES } from '@types/routes';
+import { ROLES } from '@types/roles';
 
+    
 const routes = [
     {
         path: '/',
         redirect: {
-            name: 'company',
+            name: ROUTES.DASHBOARD.NAME,
         },
     },
     {
-        name: 'company',
-        path: '/company',
-        component: Layout,
+        path: ROUTES.DASHBOARD.PATH,
+        name: ROUTES.DASHBOARD.NAME,
+        component: DashboardPage,
         meta: {
             auth: {
                 role: ROLES.ROLE_COMPANY_ADMIN,
@@ -21,28 +23,28 @@ const routes = [
         },
     },
     {
-        path: "/not-found",
-        name: "404",
+        path: ROUTES.NOT_FOUND.PATH,
+        name: ROUTES.NOT_FOUND.NAME,
         component: ErrorPage,
     },
     {
-        path: "/error",
-        name: "error",
+        path: ROUTES.ERROR.PATH,
+        name: ROUTES.ERROR.NAME,
         component: ErrorPage,
     },
     {
-        path: "/forbidden",
-        name: "forbidden",
+        path: ROUTES.FORBIDDEN.PATH,
+        name: ROUTES.FORBIDDEN.NAME,
         component: ErrorPage,
     },
     {
-        path: "/unauthorized",
-        name: "unauthorized",
+        path: ROUTES.UNAUTHORIZED.PATH,
+        name: ROUTES.UNAUTHORIZED.NAME,
         component: ErrorPage,
     },
     {
-        path: '/login',
-        name: 'login',
+        path: ROUTES.LOGIN.PATH,
+        name: ROUTES.LOGIN.NAME,
         beforeEnter: (to, from, next) => {
             authRedirect(to.params.redirect);
             next(false);
