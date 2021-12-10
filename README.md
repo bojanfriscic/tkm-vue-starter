@@ -90,7 +90,7 @@ When creating components, we want to follow two basic principles:
 
 To achieve this, each component must:
 
--   be placed within a folder barring the same name as the component
+-   be placed within a folder bearing the same name as the component
 -   contain the following files:
     -   index.js
     -   Component.vue
