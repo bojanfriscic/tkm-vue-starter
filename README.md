@@ -104,7 +104,47 @@ Notes:
 
 ## Using mock data
 
-TBA
+To use mock data instead of calling real endpoints, you will be required to run a new --mode mock. Mock data are JSON files placed inside of the mocks folder. This is a replacement for calling endpoints and acquiring real data from the backend side.
+
+To start the application in mock mode, run:
+
+```
+npm run mock
+```
+
+To test if mock data is available, add the following data to the component:
+
+```
+data() {
+        return {
+            isMock: process.env.VUE_APP_MOCKMODE === 'enabled',
+        };
+    },
+```
+
+Next, add a piece of computed data:
+
+```
+dashboardService() {
+    const fileName = 'dashboardServicesMock';
+    if (!mockupLoaderFunction(fileName)) return { ...this.userDetailsData, name: this.userName };
+    return mockupLoaderFunction(fileName);
+},
+```
+
+In the template, you can test if the app is run in the mock mode with a simple v-if:
+
+```
+<div class="content" v-if="isMock">
+    ...
+```
+
+Finally, simply loop over the data:
+
+```
+<tr v-for="(item, index) in dashboardService" :key="index">
+    ...
+```
 
 ## Visual Studio Code Setup
 
