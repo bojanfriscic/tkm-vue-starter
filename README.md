@@ -10,7 +10,7 @@ Also, make sure your Node version is set to 12.6 so that all packages will be in
 npm install
 ```
 
-After the installation, you will need to modify your hosts file in order to run the project locally. On MAC/Linux run
+After the installation, you will need to modify your hosts file in order to run the project locally. On MAC/Linux run:
 
 ```
 sudo nano /etc/hosts
@@ -60,6 +60,27 @@ In this section the coding guidelines ranging from local Visual Studio Code setu
     -   filters
     -   mixins
 
+### CSS architecture
+
+The project is using a modified version of the [ITCSS](https://www.hongkiat.com/blog/inverted-triangle-css-web-development/) architecture. Inside the scss folder, the following level are present:
+
+-   01-settings - contains variables like colors and breakpoints and vendor imports
+-   02-tools - contains helpers like mixins, functinos and extends
+-   03-generic - contains the generic CSS setup on the html and body elements (like RTL handling)
+-   04-objects - contains code related to components from the Qiwa library (e.g. modifications on the page, header, ...)
+
+In addition, we have a fifth level - components - but for the ease of use, each component will have the corresponding SCSS file inside the folder where the Vue and JS files are located.
+
+### Casing
+
+| Entity                       | Casing     | Example             |
+| ---------------------------- | ---------- | ------------------- |
+| Component (.vue, .js, .scss) | Pascalcase | Button.vue          |
+| Common JS file               | Cammelcase | authLink.js         |
+| Common SCSS file             | Kebabcase  | page-container.scss |
+| JS function                  | Cammelcase | getCookie() { ...   |
+| SCSS selector                | BEM        | .header\_\_logo     |
+
 ### Creating components
 
 When creating components, we want to follow two basic principles:
@@ -71,13 +92,26 @@ To achieve this, each component must:
 
 -   be placed within a folder barring the same name as the component
 -   contain the following files:
-    -   test
+    -   index.js
+    -   Component.vue
+    -   Component.js
+    -   Component.scss
 
-### Visual Studio Code Setup
+Notes:
+
+-   The index.js file needs to import the default export from Component.vue and create a named export
+-   All styling must be scoped
+
+## Using mock data
+
+TBA
+
+## Visual Studio Code Setup
 
 To make sure the work of all developers results with the same code formatting and output, make sure you have the following extensions installed:
 
 -   Prettier
+-   Eslint
 
 To increase productivity, the following extensions are recommended:
 
